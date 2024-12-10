@@ -28,3 +28,7 @@ for i in range(len(list1)):
     total2 += len(matched_value) * list1[i]
 
 print(f"Pt2: {total2}")
+
+with open('answers.txt', 'w') as f:
+    f.write(f"{total1}\n")
+    f.write(f"{total2}\n")
