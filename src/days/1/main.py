@@ -10,14 +10,21 @@ for line in data:
     list1.append(int(values[0]))
     list2.append(int(values[1]))
 
-list1 = sorted(list1)
-list2 = sorted(list2)
+sorted_list1 = sorted(list1)
+sorted_list2 = sorted(list2)
 
-total = 0
+total1 = 0
 for i in range(len(list1)):
-    if list1[i] >= list2[i]:
-        total += list1[i] - list2[i]
+    if sorted_list1[i] >= sorted_list2[i]:
+        total1 += sorted_list1[i] - sorted_list2[i]
     else:
-        total += list2[i] - list1[i]
+        total1 += sorted_list2[i] - sorted_list1[i]
 
-print(total)
+print(f"Pt1: {total1}")
+
+total2 = 0
+for i in range(len(list1)):
+    matched_value = [j for j in list2 if j == list1[i]]
+    total2 += len(matched_value) * list1[i]
+
+print(f"Pt2: {total2}")
