@@ -48,9 +48,10 @@ for line in input:
         prev_digit = int(line[i])
         prev_diff = difference
     if safe > 1:
-        answer1 += 1
+        answer2 += 1
 
 print(answer1)
+print(answer2)
 
 with open('answers.txt', 'w') as f:
     f.write(f"{answer1}\n")
