@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-with open('input.txt') as f:
+with open('example_input.txt') as f:
     data = f.read().splitlines()
 
 answer1 = 0
@@ -27,6 +27,27 @@ for line in input:
         prev_digit = int(line[i])
         prev_diff = difference
     if safe:
+        answer1 += 1
+
+print(answer1)
+
+for line in input:
+    safe = 0
+    prev_digit = int(line[0])
+    prev_diff = 0
+    for i in range(1,(len(line))):
+        difference = int(line[i]) - prev_digit
+        if difference * prev_diff < 0:
+            safe = False
+            break
+        if 0 < abs(difference) < 4:
+            safe += 0
+        else:
+            safe += 1
+            break
+        prev_digit = int(line[i])
+        prev_diff = difference
+    if safe > 1:
         answer1 += 1
 
 print(answer1)
