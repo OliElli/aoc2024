@@ -2,20 +2,19 @@
 
 import re
 
-with open('example_input.txt') as f:
+with open('input.txt') as f:
     data = f.read().splitlines()
 
 answer1 = 0
 answer2 = 0
 
+input = "".join(data)
+
 # pt1
-for line in data:
-    ops = re.findall(r'mul\([0-9]+,[0-9]+\)', line)
-    for op in ops:
-        print(op)
-        a, b = map(int, re.findall(r'[0-9]+', op))
-        print(a, b)
-        answer1 += a * b
+ops = re.findall(r'mul\([0-9]+,[0-9]+\)', input)
+for op in ops:
+    a, b = map(int, re.findall(r'[0-9]+', op))
+    answer1 += a * b
 
 print(answer1)
 print(answer2)
