@@ -16,6 +16,10 @@ for op in ops:
     a, b = map(int, re.findall(r'[0-9]+', op))
     answer1 += a * b
 
+#pt2
+donts = re.split(r'don\'t', input)
+print(donts)
+
 print(answer1)
 print(answer2)
 
