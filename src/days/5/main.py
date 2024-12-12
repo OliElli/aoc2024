@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-with open('src/days/5/example_input.txt') as f:
+with open('src/days/5/input.txt') as f:
     data = f.read()
 
 answer1 = 0
