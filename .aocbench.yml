@@ -1,7 +1,7 @@
 # .aocbench.yaml version (always 1)
 version: 1
 # Repo Author
-author: Oli
+author: Badgerpoo
 # Language used
 language: Python
 # Path to Dockerfile to build image
