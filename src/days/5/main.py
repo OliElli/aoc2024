@@ -25,9 +25,32 @@ def find_middle_value(lst):
         print('no middle value', lst)
         return lst[n // 2 - 1]
 
+wrong_order = []
 for pages in page_numbers:
     if eval_order(pages):
         answer1 += find_middle_value(pages)
+    else:
+        wrong_order.append(pages)
+
+def fix_order(pages, result = None):
+    for order in page_orders:
+        if order[0] in pages and order[1] in pages:
+            a = pages.index(order[0])
+            b = pages.index(order[1])
+            if a > b:
+                pages[a], pages[b] = pages[b], pages[a]
+    if eval_order(pages):
+        result = find_middle_value(pages)
+        return result
+    else:
+        result = fix_order(pages)
+        return result
+
+
+# Pt2
+# Fix the ordering
+for pages in wrong_order:
+    answer2 += fix_order(pages)
 
 print(answer1)
 print(answer2)
