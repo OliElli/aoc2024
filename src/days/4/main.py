@@ -8,11 +8,11 @@ answer2 = 0
 
 def create_directions():
     directions = []
-    for x2 in range(-1,2):
-        for y2 in range(-1,2):
-            if x2 == 0 and y2 == 0:
+    for x in range(-1,2):
+        for y in range(-1,2):
+            if x == 0 and y == 0:
                 continue
-            directions.append((x2, y2))
+            directions.append((x, y))
     return(directions)
 
 def get_char(data, x, y):
@@ -55,26 +55,29 @@ for y, line in enumerate(data):
                     answer1 += 1
 
 # pt2
-# 1 find diagonal MAS
-# cross MAS can be x1=x2, direction = crossed
-#                  y1=y2, direction = crossed
-# directions2 = [(1,1), (1,-1), (-1,-1), (-1,1)]
-# mases = []
-# for y, line in enumerate(data):
-#     for x, char in enumerate(line):
-#         if char == 'M':
-#             # Find AS
-#             for direction in directions2:
-#                 answer = find_as(data, x, y, direction)
-#                 if answer:
-#                     mases.append(((x,y), direction))
-#                     # Find a crossed MAS
-#                     pass
-# for coords, direction in mases:
-#     print(coords, direction)
-#     starter_coords = ((coords[0] + direction[0] * 2, coords[1]),(coords[0], coords[1] + direction[0] * 2))
-#     print(starter_coords)
-#     print()
+
+tx = len(data)      # number of rows
+ty = len(data[0])   # number of columns
+
+def has_x_mas(i, j):
+    # Stay inside the grid + 1 border character
+    if not (1 <= i < tx - 1 and 1<= j < ty - 1):
+        return False
+    if data[i][j] != 'A':
+        return False
+
+    # Check diagonals
+    diag1 = data[i-1][j-1] + data[i+1][j+1]
+    diag2 = data[i-1][j+1] + data[i+1][j-1]
+
+    if diag1 in ['MS','SM'] and diag2 in ['MS','SM']:
+        return True
+    return False
+
+for i in range(tx):
+    for j in range(ty):
+        if has_x_mas(i, j):
+            answer2 += 1
 
 print(answer1)
 print(answer2)
