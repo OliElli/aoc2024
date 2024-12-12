@@ -2,7 +2,7 @@
 
 from itertools import pairwise
 
-with open('input.txt') as f:
+with open('src/days/2/input.txt') as f:
     data = f.read().splitlines()
 
 answer1 = 0
@@ -38,6 +38,6 @@ answer2 += answer1
 print(answer1)
 print(answer2)
 
-with open('answers.txt', 'w') as f:
+with open('src/days/2/answers.txt', 'w') as f:
     f.write(f"{answer1}\n")
     f.write(f"{answer2}\n")

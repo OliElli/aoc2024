@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-with open('input.txt') as f:
+with open('src/days/1/input.txt') as f:
     data = f.read().splitlines()
 
 list1 = []
@@ -29,6 +29,6 @@ for i in range(len(list1)):
 
 print(f"Pt2: {total2}")
 
-with open('answers.txt', 'w') as f:
+with open('src/days/1/answers.txt', 'w') as f:
     f.write(f"{total1}\n")
     f.write(f"{total2}\n")
